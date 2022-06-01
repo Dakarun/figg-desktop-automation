@@ -53,7 +53,7 @@ HADOOP_AWS_DOWNLOAD_URL=https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-
 AWS_JAVA_SDK_DOWNLOAD_URL=https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/${AWS_JAVA_SDK_VERSION}/aws-java-sdk-bundle-${AWS_JAVA_SDK_VERSION}.jar
 SPARK_HOME=~"${USER_HOME}/.spark"
 
-if [[ -d $SPARK_HOME ]]; then
+if [[ -d "${SPARK_HOME}" ]]; then
   SPARK_INSTALLED_VERSION=$(head -1 ${SPARK_HOME}/RELEASE | cut -d ' ' -f2)
   if [[ $SPARK_INSTALLED_VERSION == $SPARK_VERSION ]]; then
     echo "Spark is already installed at the expected version, skipping"
