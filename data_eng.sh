@@ -23,12 +23,13 @@ function install_spark() {
       <value>org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider</value>
     </property>
   </configuration>
-  EOL
+EOL
 }
 
 # Install pyenv
 echo "Installing pyenv"
-if [[ -d "~/.pyenv" ]]; then
+USER_HOME=/home/$(whoami)
+if [[ -d "${USER_HOME}/.pyenv" ]]; then
   echo "pyenv is already installed, skipping"
 else
   apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl
@@ -65,7 +66,8 @@ if [[ -d $SPARK_HOME ]]; then
     rm -rf $SPARK_HOME
     install_spark
   fi
-  install_spark
+  else
+    install_spark
 fi
 
 # Install parquet-tools
