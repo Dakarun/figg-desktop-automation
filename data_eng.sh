@@ -50,7 +50,7 @@ AWS_JAVA_SDK_VERSION=1.12.227
 SPARK_DOWNLOAD_URL=https://dlcdn.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
 HADOOP_AWS_DOWNLOAD_URL=https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/${HADOOP_AWS_VERSION}/hadoop-aws-${HADOOP_AWS_VERSION}.jar
 AWS_JAVA_SDK_DOWNLOAD_URL=https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/${AWS_JAVA_SDK_VERSION}/aws-java-sdk-bundle-${AWS_JAVA_SDK_VERSION}.jar
-SPARK_HOME=~/.spark
+SPARK_HOME=~"${USER_HOME}/.spark"
 
 if [[ -d $SPARK_HOME ]]; then
   SPARK_INSTALLED_VERSION=$(head -1 ${SPARK_HOME}/RELEASE | cut -d ' ' -f2)
