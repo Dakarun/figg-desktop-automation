@@ -14,7 +14,7 @@ function install_spark() {
   echo "# spark variables end" >> ~/.zshrc
   rm /tmp/spark-${SPARK_VERSION}-bin-hadoop3.2.tgz
 
-  cat > ${SPARK_HOME}/conf/core-site-test.xml << EOL
+  cat > ${SPARK_HOME}/conf/core-site.xml << EOL
   <?xml version="1.0"?>
   <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
   <configuration>
