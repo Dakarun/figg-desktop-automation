@@ -32,13 +32,14 @@ USER_HOME=/home/$(whoami)
 if [[ -d "${USER_HOME}/.pyenv" ]]; then
   echo "pyenv is already installed, skipping"
 else
-  apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl
+  apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl python3-pip
   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
   echo -e '\n# pyenv variables' >> ~/.zshrc
   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
   echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
   echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.zshrc
   echo "# pyenv variables end" >> ~/.zshrc
+  source ~/.zshrc
   pyenv install 3.7.13
 fi
 
